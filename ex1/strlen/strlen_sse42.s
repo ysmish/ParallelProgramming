@@ -9,27 +9,26 @@
 .type strlen_sse42, @function
 
 strlen_sse42:
-    # Argument: rdi - pointer to string
-    # Return value: rax - length of string
+    # rdi holds the input string address, rax will store the result
     pushq %rbx
-    xorl %ebx, %ebx
-    movq $1, %rax
-    movq $16, %rdx
+    xorl %ebx, %ebx            # Zero out the accumulated length counter
+    movq $1, %rax               
+    movq $16, %rdx              
 
 _strlen_next:
-    # Load 16 bytes from the string
-    pxor %xmm0, %xmm0
-    vmovups (%rdi), %xmm1
-    pcmpestri $0b00000000, %xmm1, %xmm0
-    addq %rcx, %rbx
+    # Compare 16-byte chunk against zeroes to locate the null byte
+    pxor %xmm0, %xmm0          # Clear xmm0 to use as the null reference
+    vmovups (%rdi), %xmm1       
+    pcmpestri $0b00000000, %xmm1, %xmm0 
+    addq %rcx, %rbx             # Accumulate the offset into the total length
 
-    # Check if null terminator was found
+    # Advance the pointer and loop if no null was encountered
     addq $16, %rdi
-    cmpq $16, %rcx
+    cmpq $16, %rcx              # rcx == 16 means all 16 bytes were non-null
     je _strlen_next
 
 _strlen_done:
-    # Return the length of the string
+    # Move the final count into the return register and clean up
     movq %rbx, %rax
     popq %rbx
     ret
