@@ -1,0 +1,198 @@
+planet smishky 1022 $ ./test_all
+Test 1: decode(5, 10, 3)
+  C   : -36
+  ASM : -36
+  => PASS
+
+Test 2: decode(-2, 7, 5)
+  C   : -4
+  ASM : -4
+  => PASS
+
+Test 3: decode(0, 123456, 123456)
+  C   : 0
+  ASM : 0
+  => PASS
+
+Test 4: decode(-10, -20, -5)
+  C   : -151
+  ASM : -151
+  => PASS
+
+Test 5: decode(9999999, -1234567, 888888)
+  C   : 21234547876544
+  ASM : 21234547876544
+  => PASS
+
+planet smishky 1023 $ cd ..
+planet smishky 1024 $ cd formulas
+planet smishky 1025 $ ls
+Makefile  formula1.c  formulas.h  main.c  test_formula1
+planet smishky 1026 $ ./test_formula1
+✅ Test 1 passed
+✅ Test 2 passed
+✅ Test 3 passed
+✅ Test 4 passed
+✅ Test 5 passed
+✅ Test 6 passed
+✅ Test 7 passed
+✅ Test 8 passed
+✅ Test 9 passed
+✅ Test 10 passed
+✅ Test 11 passed
+✅ Test 12 passed
+✅ Test 13 passed
+✅ Test 14 passed
+✅ Test 15 passed
+✅ Test 16 passed
+✅ Test 17 passed
+✅ Test 18 passed
+✅ Test 19 passed
+✅ Test 20 passed
+✅ Test 21 passed
+✅ Test 22 passed
+✅ Test 23 passed
+✅ Test 24 passed
+✅ Test 25 passed
+✅ Test 26 passed
+✅ Test 27 passed
+✅ Test 28 passed
+✅ Test 29 passed
+✅ Test 30 passed
+✅ Test 31 passed
+✅ Test 32 passed
+✅ Test 33 passed
+✅ Test 34 passed
+✅ Test 35 passed
+✅ Test 36 passed
+✅ Test 37 passed
+✅ Test 38 passed
+✅ Test 39 passed
+✅ Test 40 passed
+✅ Test 41 passed
+✅ Test 42 passed
+✅ Test 43 passed
+✅ Test 44 passed
+✅ Test 45 passed
+✅ Test 46 passed
+✅ Test 47 passed
+✅ Test 48 passed
+✅ Test 49 passed
+✅ Test 50 passed
+✅ Test 51 passed
+✅ Test 52 passed
+✅ Test 53 passed
+✅ Test 54 passed
+✅ Test 55 passed
+✅ Test 56 passed
+✅ Test 57 passed
+✅ Test 58 passed
+✅ Test 59 passed
+✅ Test 60 passed
+✅ Test 61 passed
+✅ Test 62 passed
+✅ Test 63 passed
+✅ Test 64 passed
+✅ Test 65 passed
+✅ Test 66 passed
+✅ Test 67 passed
+✅ Test 68 passed
+✅ Test 69 passed
+✅ Test 70 passed
+✅ Test 71 passed
+✅ Test 72 passed
+✅ Test 73 passed
+✅ Test 74 passed
+✅ Test 75 passed
+✅ Test 76 passed
+✅ Test 77 passed
+✅ Test 78 passed
+✅ Test 79 passed
+✅ Test 80 passed
+✅ Test 81 passed
+✅ Test 82 passed
+✅ Test 83 passed
+✅ Test 84 passed
+✅ Test 85 passed
+✅ Test 86 passed
+✅ Test 87 passed
+✅ Test 88 passed
+✅ Test 89 passed
+✅ Test 90 passed
+✅ Test 91 passed
+✅ Test 92 passed
+✅ Test 93 passed
+✅ Test 94 passed
+✅ Test 95 passed
+✅ Test 96 passed
+✅ Test 97 passed
+✅ Test 98 passed
+✅ Test 99 passed
+✅ Test 100 passed
+🎉 All tests completed successfully!
+planet smishky 1027 $ cd ..
+planet smishky 1028 $ cd hamming
+planet smishky 1029 $ ls
+Makefile  hamming_intrinsics.c  test_hamming  test_hamming.c
+planet smishky 1030 $ ./test_hamming
+Test 1:
+  str1: "hello world"
+  str2: "hxllo worl!"
+  Hamming Distance = 2 (expected 2) => PASS ✅
+
+Test 2:
+  str1: "abcd"
+  str2: "abcd"
+  Hamming Distance = 0 (expected 0) => PASS ✅
+
+Test 3:
+  str1: "short"
+  str2: "shorter"
+  Hamming Distance = 2 (expected 2) => PASS ✅
+
+Test 4:
+  str1: "ABCdef123456"
+  str2: "abcDEF123457"
+  Hamming Distance = 7 (expected 7) => PASS ✅
+
+Test 5:
+  str1: "ABCdef1234562212222"
+  str2: "abcDEF123457221"
+  Hamming Distance = 11 (expected 11) => PASS ✅
+
+planet smishky 1031 $ cd ..
+planet smishky 1032 $ cd strlen
+planet smishky 1033 $ ls
+Makefile  strlen_sse42.h  strlen_sse42.o  strlen_sse42.s  test_strlen  test_strlen.c
+planet smishky 1034 $ ./test_strlen
+Test 1: ""
+  ASM strlen : 0
+  C   strlen : 0
+  => PASS ✅
+
+Test 2: "a"
+  ASM strlen : 1
+  C   strlen : 1
+  => PASS ✅
+
+Test 3: "hello"
+  ASM strlen : 5
+  C   strlen : 5
+  => PASS ✅
+
+Test 4: "1234567890123456"
+  ASM strlen : 16
+  C   strlen : 16
+  => PASS ✅
+
+Test 5: "12345678901234567"
+  ASM strlen : 17
+  C   strlen : 17
+  => PASS ✅
+
+Test 6: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  ASM strlen : 52
+  C   strlen : 52
+  => PASS ✅
+
+planet smishky 1035 $ 
