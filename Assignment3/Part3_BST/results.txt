@@ -1,0 +1,95 @@
+planet smishky 1020 $ python3 inputs/generate_inputs.py
+  wrote ops_fromempty_small.txt  (10000 ops, 95.6 KB)
+  wrote ops_fromempty_medium.txt  (500000 ops, 5619.5 KB)
+  wrote ops_fromempty_large.txt  (5000000 ops, 60824.0 KB)
+  wrote ops_fromempty_heavy.txt  (20000000 ops, 254734.2 KB)
+  wrote ops_bta_small.txt  (20000 ops, 228.7 KB)
+  wrote ops_bta_medium.txt  (1000000 ops, 13206.5 KB)
+  wrote ops_bta_large.txt  (7000000 ops, 90717.8 KB)
+
+  wrote ops_bta_heavy.txt  (23999999 ops, 311970.5 KB)
+Done.
+planet smishky 1021 $ 
+planet smishky 1021 $ ./bst_bench
+
+=== ops_fromempty_small.txt (mode=fromempty, init=0, attack=10000) ===
+Threads  | Time(s)    | Speedup  | Efficiency | Correctness
+---------+------------+----------+------------+----------------------
+serial   | 0.0035     | 1.000    | --         | reference
+1        | 0.0034     | 1.006    | 1.006      | OK (inorder match, 8000 nodes)
+2        | 0.0044     | 0.787    | 0.393      | OK (inorder match, 8000 nodes)
+4        | 0.0054     | 0.636    | 0.159      | OK (inorder match, 8000 nodes)
+8        | 0.0082     | 0.424    | 0.053      | OK (inorder match, 8000 nodes)
+16       | 0.0088     | 0.394    | 0.025      | OK (inorder match, 8000 nodes)
+
+=== ops_bta_small.txt (mode=buildthenattack, init=10000, attack=10000) ===
+Threads  | Time(s)    | Speedup  | Efficiency | Correctness
+---------+------------+----------+------------+----------------------
+serial   | 0.0048     | 1.000    | --         | reference
+1        | 0.0048     | 1.004    | 1.004      | OK (inorder match, 10000 nodes)
+2        | 0.0054     | 0.883    | 0.442      | OK (inorder match, 10000 nodes)
+4        | 0.0066     | 0.727    | 0.182      | OK (inorder match, 10000 nodes)
+8        | 0.0094     | 0.511    | 0.064      | OK (inorder match, 10000 nodes)
+16       | 0.0108     | 0.446    | 0.028      | OK (inorder match, 10000 nodes)
+
+=== ops_fromempty_medium.txt (mode=fromempty, init=0, attack=500000) ===
+Threads  | Time(s)    | Speedup  | Efficiency | Correctness
+---------+------------+----------+------------+----------------------
+serial   | 0.2709     | 1.000    | --         | reference
+1        | 0.2722     | 0.995    | 0.995      | OK (inorder match, 400000 nodes)
+2        | 0.2868     | 0.945    | 0.472      | OK (inorder match, 400000 nodes)
+4        | 0.2044     | 1.325    | 0.331      | OK (inorder match, 400000 nodes)
+8        | 0.2778     | 0.975    | 0.122      | OK (inorder match, 400000 nodes)
+16       | 0.4465     | 0.607    | 0.038      | OK (inorder match, 400000 nodes)
+
+=== ops_bta_medium.txt (mode=buildthenattack, init=500000, attack=500000) ===
+Threads  | Time(s)    | Speedup  | Efficiency | Correctness
+---------+------------+----------+------------+----------------------
+serial   | 0.4746     | 1.000    | --         | reference
+1        | 0.4812     | 0.986    | 0.986      | OK (inorder match, 500000 nodes)
+2        | 0.7741     | 0.613    | 0.307      | OK (inorder match, 500000 nodes)
+4        | 0.3775     | 1.257    | 0.314      | OK (inorder match, 500000 nodes)
+8        | 0.3486     | 1.361    | 0.170      | OK (inorder match, 500000 nodes)
+16       | 0.5920     | 0.802    | 0.050      | OK (inorder match, 500000 nodes)
+
+=== ops_fromempty_large.txt (mode=fromempty, init=0, attack=5000000) ===
+Threads  | Time(s)    | Speedup  | Efficiency | Correctness
+---------+------------+----------+------------+----------------------
+serial   | 5.0258     | 1.000    | --         | reference
+1        | 5.0179     | 1.002    | 1.002      | OK (inorder match, 4000000 nodes)
+2        | 4.6234     | 1.087    | 0.544      | OK (inorder match, 4000000 nodes)
+4        | 4.1726     | 1.204    | 0.301      | OK (inorder match, 4000000 nodes)
+8        | 3.0578     | 1.644    | 0.205      | OK (inorder match, 4000000 nodes)
+16       | 4.0774     | 1.233    | 0.077      | OK (inorder match, 4000000 nodes)
+
+=== ops_bta_large.txt (mode=buildthenattack, init=2000000, attack=5000000) ===
+Threads  | Time(s)    | Speedup  | Efficiency | Correctness
+---------+------------+----------+------------+----------------------
+serial   | 6.6709     | 1.000    | --         | reference
+1        | 6.6536     | 1.003    | 1.003      | OK (inorder match, 2000000 nodes)
+2        | 5.2249     | 1.277    | 0.638      | OK (inorder match, 2000000 nodes)
+4        | 4.5323     | 1.472    | 0.368      | OK (inorder match, 2000000 nodes)
+8        | 3.7047     | 1.801    | 0.225      | OK (inorder match, 2000000 nodes)
+16       | 5.7954     | 1.151    | 0.072      | OK (inorder match, 2000000 nodes)
+
+=== ops_fromempty_heavy.txt (mode=fromempty, init=0, attack=20000000) ===
+Threads  | Time(s)    | Speedup  | Efficiency | Correctness
+---------+------------+----------+------------+----------------------
+serial   | 29.2127    | 1.000    | --         | reference
+1        | 28.7265    | 1.017    | 1.017      | OK (inorder match, 16000000 nodes)
+2        | 24.6913    | 1.183    | 0.592      | OK (inorder match, 16000000 nodes)
+4        | 21.5003    | 1.359    | 0.340      | OK (inorder match, 16000000 nodes)
+8        | 13.4831    | 2.167    | 0.271      | OK (inorder match, 16000000 nodes)
+16       | 17.4163    | 1.677    | 0.105      | OK (inorder match, 16000000 nodes)
+
+=== ops_bta_heavy.txt (mode=buildthenattack, init=5000000, attack=18999999) ===
+Threads  | Time(s)    | Speedup  | Efficiency | Correctness
+---------+------------+----------+------------+----------------------
+serial   | 31.9043    | 1.000    | --         | reference
+1        | 31.5337    | 1.012    | 1.012      | OK (inorder match, 6000001 nodes)
+2        | 24.7947    | 1.287    | 0.643      | OK (inorder match, 6000001 nodes)
+4        | 21.8602    | 1.459    | 0.365      | OK (inorder match, 6000001 nodes)
+8        | 16.3293    | 1.954    | 0.244      | OK (inorder match, 6000001 nodes)
+16       | 19.6191    | 1.626    | 0.102      | OK (inorder match, 6000001 nodes)
+
+Results written to scalability.log
