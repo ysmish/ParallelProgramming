@@ -1,5 +1,5 @@
-// 330829847 Ido Maimon
-// 216764803 Yuli Smishkis
+// 330829847 - Ido Maimon
+// 216764803 - Yuli Smishkis
 
 #include <mpi.h>
 #include <stdio.h>
