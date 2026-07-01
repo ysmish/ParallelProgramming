@@ -1,0 +1,14 @@
+planet smishky 999 $ mpicc -std=c11 -O2 prefix_sum_sendrecv.c -o mpi_exec
+planet smishky 1000 $ mpicc -std=c11 -O2 matmul_mpi.c matrix.c -o matmul
+planet smishky 1001 $ mpirun -np 8 ./mpi_exec   
+rank=0 x=0 prefix=0
+rank=1 x=1 prefix=1
+rank=2 x=2 prefix=3
+rank=3 x=3 prefix=6
+rank=4 x=4 prefix=10
+rank=5 x=5 prefix=15
+rank=6 x=6 prefix=21
+rank=7 x=7 prefix=28
+planet smishky 1002 $ mpirun -np 4 ./matmul 10 123 456 100
+checksum(C)=2437466
+planet smishky 1003 $ 
